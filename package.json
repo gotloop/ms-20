@@ -4,11 +4,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --base=/ms-20/",
-    "serve": "vite preview",
+    "serve": "vite preview --base=/ms-20/",
     "deploy": "NODE_DEBUG=gh-pages gh-pages -d dist"
   },
   "dependencies": {
     "preact": "^10.5.13",
+    "rxjs": "^7.4.0",
     "tone": "^14.7.77"
   },
   "devDependencies": {

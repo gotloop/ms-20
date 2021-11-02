@@ -10,6 +10,7 @@ body {
   color: #444;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./images/ms-20-defaults.png);
 }
 
 * {
@@ -19,7 +20,7 @@ body {
 #app {
   height: 100%;
   text-align: center;
-  background-color: #673ab8;
+  background-color: #666666;
   color: #fff;
   font-size: 1.5em;
   padding-top: 100px;
