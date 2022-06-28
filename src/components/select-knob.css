@@ -1,0 +1,8 @@
+.select-knob {
+  position: relative;
+}
+
+.select-knob select,
+.select-knob label {
+  display: none;
+}
