@@ -1,6 +1,6 @@
 # MS-20
 
-An attempt to recreate the MS-20 synthesizer with Tone.js (Webaudio), SVG and React
+An attempt to recreate the MS-20 synthesizer with Tone.js (Webaudio), SVG and (p)React
 
 ## Manuel
 

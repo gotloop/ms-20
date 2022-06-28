@@ -1,10 +1,9 @@
 import { Keyboard } from './components/keyboard'
-
+import styles from './app.module.css';
 export function App() {
   return (
     <>
-      <div class="main-layout">
-
+      <div className={styles.mainLayout}>
         <Keyboard></Keyboard>
       </div>
     </>
