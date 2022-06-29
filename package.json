@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/ms-20/",
+    "build": "tsc && vite build",
     "serve": "vite preview",
     "deploy": "NODE_DEBUG=gh-pages gh-pages -d dist"
   },

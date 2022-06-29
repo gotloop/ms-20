@@ -16,8 +16,8 @@ jobs:
       - name: Install and build
         run: |
           npm install
-          npm run build
-      - name: Deploy
+          npm run build -- --base=/ms-20/
+      - name: Deploy to gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
