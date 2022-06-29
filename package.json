@@ -15,9 +15,14 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.2.0",
+    "@testing-library/preact": "^3.2.2",
+    "axe-core": "^4.4.2",
+    "c8": "^7.11.3",
     "gh-pages": "^4.0.0",
+    "jsdom": "^20.0.0",
     "typescript": "^4.7.4",
-    "vite": "^2.9.13"
+    "vite": "^2.9.13",
+    "vitest": "^0.16.0"
   },
   "overrides": {
     "esbuild": "0.14.44"
