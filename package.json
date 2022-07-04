@@ -1,30 +1,30 @@
 {
-  "name": "ms-20",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview",
-    "deploy": "NODE_DEBUG=gh-pages gh-pages -d dist"
-  },
-  "dependencies": {
-    "@ngneat/elf": "^2.1.0",
-    "preact": "^10.8.2",
-    "rxjs": "^7.5.5",
-    "tone": "^14.7.77"
-  },
-  "devDependencies": {
-    "@preact/preset-vite": "^2.2.0",
-    "@testing-library/preact": "^3.2.2",
-    "axe-core": "^4.4.2",
-    "c8": "^7.11.3",
-    "gh-pages": "^4.0.0",
-    "jsdom": "^20.0.0",
-    "typescript": "^4.7.4",
-    "vite": "^2.9.13",
-    "vitest": "^0.16.0"
-  },
-  "overrides": {
-    "esbuild": "0.14.44"
-  }
+	"name": "ms-20",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"serve": "vite preview",
+		"deploy": "NODE_DEBUG=gh-pages gh-pages -d dist"
+	},
+	"dependencies": {
+		"@ngneat/elf": "^2.1.0",
+		"preact": "^10.8.2",
+		"rxjs": "^7.5.5",
+		"tone": "^14.7.77"
+	},
+	"devDependencies": {
+		"@preact/preset-vite": "^2.2.0",
+		"@testing-library/preact": "^3.2.2",
+		"axe-core": "^4.4.2",
+		"c8": "^7.11.3",
+		"gh-pages": "^4.0.0",
+		"jsdom": "^20.0.0",
+		"typescript": "^4.7.4",
+		"vite": "^2.9.13",
+		"vitest": "^0.16.0"
+	},
+	"overrides": {
+		"esbuild": "0.14.44"
+	}
 }

@@ -4,25 +4,25 @@ import "./keyboard.css";
 
 // 12 keys in an octave
 const keysTemplate: string[] = [
-  "C",
-  "C♯/D♭",
-  "D",
-  "D♯/E♭",
-  "E",
-  "F",
-  "F♯/G♭",
-  "G",
-  "G♯/A♭",
-  "A",
-  "A♯/B♭",
-  "B",
+	"C",
+	"C♯/D♭",
+	"D",
+	"D♯/E♭",
+	"E",
+	"F",
+	"F♯/G♭",
+	"G",
+	"G♯/A♭",
+	"A",
+	"A♯/B♭",
+	"B",
 ];
 // 3 times octaves
 const keys = [
-  ...keysTemplate.map((note) => `${note}1`),
-  ...keysTemplate.map((note) => `${note}2`),
-  ...keysTemplate.map((note) => `${note}3`),
-  ...keysTemplate.map((note) => `${note}4`),
+	...keysTemplate.map((note) => `${note}1`),
+	...keysTemplate.map((note) => `${note}2`),
+	...keysTemplate.map((note) => `${note}3`),
+	...keysTemplate.map((note) => `${note}4`),
 ];
 // see https://en.wikipedia.org/wiki/Twelfth_root_of_two
 const twelveRootOfTwo = Math.pow(2, 1 / 12);
@@ -30,28 +30,28 @@ const twelveRootOfTwo = Math.pow(2, 1 / 12);
 const startingNote = 440 - 9 * twelveRootOfTwo;
 
 interface KeyAndVal {
-  color: "black" | "white";
-  note: string;
-  freq: number;
+	color: "black" | "white";
+	note: string;
+	freq: number;
 }
 
 const keysAndVals: KeyAndVal[] = keys.map((keyName, index) => {
-  const blackOrWhite = keyName.includes("/");
-  return {
-    color: blackOrWhite ? "black" : "white",
-    note: keyName,
-    freq: startingNote + index * twelveRootOfTwo,
-  };
+	const blackOrWhite = keyName.includes("/");
+	return {
+		color: blackOrWhite ? "black" : "white",
+		note: keyName,
+		freq: startingNote + index * twelveRootOfTwo,
+	};
 });
 /**
  * @see https://en.wikipedia.org/wiki/Piano_key_frequencies
  * @returns
  */
 export const Keyboard = () => (
-  <div class="keyboard-container">
-    <Slider></Slider>
-    {Array.from(keysAndVals).map((key) => (
-      <Key color={key.color} note={key.note} freq={key.freq}></Key>
-    ))}
-  </div>
+	<div class="keyboard-container">
+		<Slider></Slider>
+		{Array.from(keysAndVals).map((key) => (
+			<Key color={key.color} note={key.note} freq={key.freq}></Key>
+		))}
+	</div>
 );

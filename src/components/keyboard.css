@@ -1,6 +1,6 @@
 .keyboard-container {
-  padding-bottom: 5px;
-  display: flex;
-  padding-left: 80px;
-  flex-direction: row;
+	padding-bottom: 5px;
+	display: flex;
+	padding-left: 80px;
+	flex-direction: row;
 }

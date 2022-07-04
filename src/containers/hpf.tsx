@@ -1,1 +1,1 @@
-export const HighPassFilter = () => (<></>);
+export const HighPassFilter = () => <></>;

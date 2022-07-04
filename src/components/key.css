@@ -1,38 +1,38 @@
 .key {
-  position: relative;
-  overflow: hidden;
-  border: 0;
-  padding: 10px 2px;
-  border-radius: 4px;
-  height: 200px;
-  width: 30px;
-  flex: 0 0 auto;
-  writing-mode: vertical-lr;
-  text-align: right;
-  transition: background-color ease-in-out 0.3s;
+	position: relative;
+	overflow: hidden;
+	border: 0;
+	padding: 10px 2px;
+	border-radius: 4px;
+	height: 200px;
+	width: 30px;
+	flex: 0 0 auto;
+	writing-mode: vertical-lr;
+	text-align: right;
+	transition: background-color ease-in-out 0.3s;
 }
 .key-white {
-  background-color: rgb(255, 235, 209);
-  color: rgba(0, 0, 0, 85%);
-  margin-right: 2px;
-  box-shadow: inset 2px 2px 4px white, inset -2px -2px 4px rgba(0, 0, 0, 15%);
+	background-color: rgb(255, 235, 209);
+	color: rgba(0, 0, 0, 85%);
+	margin-right: 2px;
+	box-shadow: inset 2px 2px 4px white, inset -2px -2px 4px rgba(0, 0, 0, 15%);
 }
 .key-white:hover,
 .key-white:focus {
-  background-color: rgb(255, 240, 221);
+	background-color: rgb(255, 240, 221);
 }
 .key-black {
-  background-color: #2f2f2f;
-  color: rgba(255, 255, 255, 80%);
-  height: 120px;
-  margin-left: -10px;
-  margin-right: -10px;
-  width: 20px;
-  z-index: 2;
-  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 25%),
-    inset -2px -2px 4px rgba(0, 0, 0, 100%), 0 0 5px rgba(0, 0, 0, 45%);
+	background-color: #2f2f2f;
+	color: rgba(255, 255, 255, 80%);
+	height: 120px;
+	margin-left: -10px;
+	margin-right: -10px;
+	width: 20px;
+	z-index: 2;
+	box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 25%),
+		inset -2px -2px 4px rgba(0, 0, 0, 100%), 0 0 5px rgba(0, 0, 0, 45%);
 }
 .key-black:hover,
 .key-black:focus {
-  background-color: #1a1a1a;
+	background-color: #1a1a1a;
 }
