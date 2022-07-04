@@ -1,1 +1,1 @@
-export const CablePanel = () => (<></>);
+export const CablePanel = () => <></>;

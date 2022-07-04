@@ -1,1 +1,1 @@
-export const EnvelopeGenerator1 = () => (<>{/* delay, attack, release */}</>);
+export const EnvelopeGenerator1 = () => <>{/* delay, attack, release */}</>;

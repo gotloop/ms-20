@@ -1,1 +1,1 @@
-export const VoltageControlOscillator2 = () => (<></>);
+export const VoltageControlOscillator2 = () => <></>;

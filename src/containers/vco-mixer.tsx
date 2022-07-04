@@ -1,1 +1,1 @@
-export const VoltageControlOscillatorMixer = () => (<></>);
+export const VoltageControlOscillatorMixer = () => <></>;
