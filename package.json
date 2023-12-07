@@ -12,22 +12,21 @@
 	},
 	"dependencies": {
 		"@ngneat/elf": "^2.4.0",
-		"preact": "^10.18.1",
+		"preact": "^10.19.2",
 		"rxjs": "^7.8.1",
 		"tone": "^14.7.77"
 	},
 	"devDependencies": {
-		"@preact/preset-vite": "^2.6.0",
+		"@preact/preset-vite": "^2.7.0",
 		"@testing-library/preact": "^3.2.3",
+		"@types/node": "^20",
 		"axe-core": "^4.8.2",
-		"c8": "^7.14.0",
-		"gh-pages": "^4.0.0",
-		"jsdom": "^20.0.3",
-		"typescript": "^4.9.5",
-		"vite": "^2.9.16",
-		"vitest": "^0.16.0"
+		"c8": "^8.0.1",
+		"gh-pages": "^6.1.0",
+		"jsdom": "^23.0.1",
+		"typescript": "^5.3.3",
+		"vite": "^5.0.6",
+		"vitest": "^1.0.2"
 	},
-	"overrides": {
-		"esbuild": "0.14.44"
-	}
+	"type": "module"
 }
