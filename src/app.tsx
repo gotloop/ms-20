@@ -7,7 +7,6 @@ export function App() {
 	const handleSubmit = (event: Event) => {
 		event.preventDefault();
 		event.stopImmediatePropagation();
-		debugger;
 	};
 	return (
 		<>

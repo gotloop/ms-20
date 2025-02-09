@@ -6,6 +6,11 @@ export default defineConfig({
 	plugins: [preactPlugin()],
 	test: {
 		environment: "jsdom",
-		environmentOptions: { jsdom: { html: readFileSync("index.html") } },
+		environmentOptions: {
+			jsdom: {
+				/* loads the full page in test env */
+				html: readFileSync("index.html").toString(),
+			},
+		},
 	},
 });
