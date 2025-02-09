@@ -1,3 +1,5 @@
+import { signal, Signal } from "@preact/signals";
+
 /** values for oscillators */
 export type WaveForm = "triangle" | "sine" | "square";
 
@@ -30,23 +32,40 @@ export interface Ms20Setting {
 		vco2: number;
 	};
 	/** high pass filter */
-	hpf: {
+	highPassFilter: {
+		/**cutoff frequency */
 		fc: number;
 		peak: number;
 	};
 	/** low pass filter */
-	lpf: {
+	lowPassFilter: {
+		/** cutoff frequency */
 		fc: number;
 		peak: number;
 	};
+	frequencyModulation: {},
+	modulationGenerator: {},
+	envelopeGenerator1: {
+		delayTime: number;
+		attackTime: number;
+		releaseTime: number;
+	},
+	envelopeGenerator2: {
+		holdTime: number;
+		attackTime: number;
+		decayTime: number;
+		sustainLevel: number;
+		releaseTime: number;
+	},
+
 }
 
 /** Main state of the app. */
 export interface Ms20State {
-	volume: number;
-	currentNote?: string;
-	isPlaying: boolean;
-	currentSetting?: Ms20Setting;
+	volume: Signal<number>;
+	currentNote?: Signal<string>;
+	isPlaying: Signal<boolean>;
+	currentSetting?: Signal<Ms20Setting>;
 }
 
 /** Factory defaults */
@@ -79,7 +98,8 @@ export const initialSetting = (): Ms20Setting => ({
 });
 /** initial state of the MS-20 */
 export const initialState: Ms20State = {
-	volume: 100,
-	isPlaying: false,
-	currentSetting: initialSetting(),
+	volume: signal(60),
+	isPlaying: signal(false),
+	currentSetting: signal(initialSetting()),
 };
+
