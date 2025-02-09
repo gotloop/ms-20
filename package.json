@@ -11,9 +11,8 @@
 		"format": "prettier --write src"
 	},
 	"dependencies": {
-		"@ngneat/elf": "^2.5.1",
+		"@preact/signals": "^2.0.1",
 		"preact": "^10.25.4",
-		"rxjs": "^7.8.1",
 		"tone": "^15.0.4"
 	},
 	"devDependencies": {
