@@ -1,3 +1,5 @@
+import Fragment from "preact";
+
 import { CablePanel } from "./components/cable-panel";
 import { Keyboard } from "./components/keyboard";
 import { KnobsPanel } from "./containers/knobs-panel";
@@ -7,7 +9,6 @@ export function App() {
 	const handleSubmit = (event: Event) => {
 		event.preventDefault();
 		event.stopImmediatePropagation();
-		debugger;
 	};
 	return (
 		<>
