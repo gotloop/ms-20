@@ -1,5 +1,3 @@
-import Fragment from "preact";
-
 import { CablePanel } from "./components/cable-panel";
 import { Keyboard } from "./components/keyboard";
 import { KnobsPanel } from "./containers/knobs-panel";
