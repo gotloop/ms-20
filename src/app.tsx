@@ -2,7 +2,8 @@ import { CablePanel } from "./components/cable-panel";
 import { Keyboard } from "./components/keyboard";
 import { KnobsPanel } from "./containers/knobs-panel";
 import "./app.css";
-
+import { state } from "./state/state";
+import "./state/effects";
 export function App() {
 	const handleSubmit = (event: Event) => {
 		event.preventDefault();
@@ -28,6 +29,7 @@ export function App() {
 					</div>
 				</form>
 			</main>
+			<pre>{state.currentNote.value}</pre>
 			<footer role="contentinfo" aria-label="Footer">
 				&copy; {new Date().getFullYear()} made with &hearts; by{" "}
 				<a href="https://github.com/benjilegnard"> benjilegnard</a>

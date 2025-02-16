@@ -1,3 +1,4 @@
+import { state } from "../state/state";
 import "./key.css";
 
 export interface KeyProps {
@@ -7,9 +8,13 @@ export interface KeyProps {
 }
 
 export const Key = (props: KeyProps) => {
-	const handleClick = () => {
-		console.log(props);
+	const handleMouseDown = () => {
+		state.currentNote.value = props.freq;
+		state.isPlaying.value = true;
 	};
+	const handleMouseUp = () => {
+		state.isPlaying.value = false;
+	}
 	return (
 		<button
 			class={["key", `key-${props.color}`].join(" ")}
@@ -17,7 +22,8 @@ export const Key = (props: KeyProps) => {
 			type="button"
 			value={props.freq}
 			title={props.note}
-			onClick={handleClick}
+			onMouseDown={handleMouseDown}
+			onMouseUp={handleMouseUp}
 		>
 			{props.note}
 		</button>
