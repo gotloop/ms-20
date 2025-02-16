@@ -1,39 +1,28 @@
-import { CablePanel } from "./components/cable-panel";
-import { Keyboard } from "./components/keyboard";
-import { KnobsPanel } from "./containers/knobs-panel";
-import "./app.css";
+import { signal } from "@preact/signals";
+
 import { state } from "./state/state";
 import "./state/effects";
+
+import { Title } from "./components/title";
+import { Body } from "./body";
+import { Footer } from "./components/footer";
+
+const debugState = {
+	enabled: signal(false),
+	displayOverlay: signal(false),
+}
+
 export function App() {
-	const handleSubmit = (event: Event) => {
-		event.preventDefault();
-		event.stopImmediatePropagation();
-	};
 	return (
 		<>
 			<main aria-label="synthesizer">
-				<h1>KORG MS-20</h1>
-				<form
-					name="ms-20"
-					class="main-layout"
-					onSubmit={handleSubmit}
-					method="post"
-				>
-					<div class="top-panel">
-						<KnobsPanel></KnobsPanel>
-						<CablePanel></CablePanel>
-					</div>
-					<div class="keyboard">
-						<div class="separation-bar"></div>
-						<Keyboard></Keyboard>
-					</div>
-				</form>
+				<Title />
+				<Body />
 			</main>
-			<pre>{state.currentNote.value}</pre>
-			<footer role="contentinfo" aria-label="Footer">
-				&copy; {new Date().getFullYear()} made with &hearts; by{" "}
-				<a href="https://github.com/benjilegnard"> benjilegnard</a>
-			</footer>
+			{
+				debugState.enabled.value ?? <pre>{state.currentNote.value}</pre>
+			}
+			<Footer />
 		</>
 	);
 }
