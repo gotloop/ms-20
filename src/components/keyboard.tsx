@@ -34,19 +34,21 @@ interface KeyAndVal {
 	note: string;
 	freq: number;
 }
-
+let previousFrequency = startingNote;
 const keysAndVals: KeyAndVal[] = keys.map((keyName, index) => {
 	const blackOrWhite = keyName.includes("/");
+	const currentFrequency = previousFrequency * twelveRootOfTwo;
+	previousFrequency = currentFrequency;
 	return {
 		color: blackOrWhite ? "black" : "white",
 		note: keyName,
-		freq: startingNote + index * twelveRootOfTwo,
+		freq: currentFrequency,
 	};
 });
 /**
- * @see https://en.wikipedia.org/wiki/Piano_key_frequencies
- * @returns
- */
+	* @see https://en.wikipedia.org/wiki/Piano_key_frequencies
+	* @returns
+	*/
 export const Keyboard = () => (
 	<div class="keyboard-container">
 		<Slider></Slider>
