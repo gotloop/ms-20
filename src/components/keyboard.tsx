@@ -17,6 +17,7 @@ const keysTemplate: string[] = [
 	"A♯/B♭",
 	"B",
 ];
+
 // 3 times octaves
 const keys = [
 	...keysTemplate.map((note) => `${note}1`),
@@ -24,6 +25,7 @@ const keys = [
 	...keysTemplate.map((note) => `${note}3`),
 	...keysTemplate.map((note) => `${note}4`),
 ];
+
 // see https://en.wikipedia.org/wiki/Twelfth_root_of_two
 const twelveRootOfTwo = Math.pow(2, 1 / 12);
 
@@ -34,23 +36,35 @@ interface KeyAndVal {
 	note: string;
 	freq: number;
 }
+
 let previousFrequency = startingNote;
-const keysAndVals: KeyAndVal[] = keys.map((keyName, index) => {
+
+const keysAndVals: KeyAndVal[] = keys.map((keyName) => {
+
 	const blackOrWhite = keyName.includes("/");
 	const currentFrequency = previousFrequency * twelveRootOfTwo;
 	previousFrequency = currentFrequency;
+
 	return {
 		color: blackOrWhite ? "black" : "white",
 		note: keyName,
 		freq: currentFrequency,
 	};
 });
+
+const KeyBoardContainerStyles = {
+	paddingBottom: "5px",
+	display: "flex",
+	paddingLeft: "80px",
+	flexDirection: "row",
+}
+
 /**
 	* @see https://en.wikipedia.org/wiki/Piano_key_frequencies
 	* @returns
 	*/
 export const Keyboard = () => (
-	<div class="keyboard-container">
+	<div style={KeyBoardContainerStyles}>
 		<Slider></Slider>
 		{Array.from(keysAndVals).map((key) => (
 			<Key color={key.color} note={key.note} freq={key.freq}></Key>
