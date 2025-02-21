@@ -1,6 +1,6 @@
+import { css, Styles } from "../../styled-system/css";
 import { Key } from "./key";
 import { Slider } from "./slider";
-import "./keyboard.css";
 
 // 12 keys in an octave
 const keysTemplate: string[] = [
@@ -52,7 +52,7 @@ const keysAndVals: KeyAndVal[] = keys.map((keyName) => {
 	};
 });
 
-const KeyBoardContainerStyles = {
+const KeyBoardContainerStyles: Styles = {
 	paddingBottom: "5px",
 	display: "flex",
 	paddingLeft: "80px",
@@ -64,7 +64,7 @@ const KeyBoardContainerStyles = {
 	* @returns
 	*/
 export const Keyboard = () => (
-	<div style={KeyBoardContainerStyles}>
+	<div className={css(KeyBoardContainerStyles)}>
 		<Slider></Slider>
 		{Array.from(keysAndVals).map((key) => (
 			<Key color={key.color} note={key.note} freq={key.freq}></Key>

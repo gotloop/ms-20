@@ -1,5 +1,6 @@
 import { useRef } from "preact/hooks";
 import { Knob } from "./knob";
+import { css, Styles } from "../../styled-system/css";
 
 /**
 	* Input props
@@ -13,7 +14,7 @@ export interface NumberKnobProps {
 	onChange: (value?: number) => void;
 }
 
-const NumberKnobStyles: JSX.CSSProperties = {
+const NumberKnobStyles: Styles = {
 	display: "block",
 }
 
@@ -29,7 +30,7 @@ export const NumberKnob = (props: NumberKnobProps) => {
 	};
 
 	return (
-		<div style={NumberKnobStyles}>
+		<div className={css(NumberKnobStyles)}>
 			<Knob onChange={onValueChange}></Knob>
 			<label id={`${props.id}-label`} for={props.id}>
 				{props.label}
