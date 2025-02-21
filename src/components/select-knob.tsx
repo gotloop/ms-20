@@ -1,21 +1,19 @@
 import { Knob } from "./knob";
-import "./select-knog.css";
 
 export interface SelectKnobProps {
 	id: string;
 	label: string;
 	value: string;
 	options: string[];
-	startAngle: number;
 }
 
-export const SelectKnob = ({ options, id }: SelectKnobProps) => (
+export const SelectKnob = (props: SelectKnobProps) => (
 	<div class="select-knob">
 		<Knob></Knob>
-		<label for={id}></label>
-		<select name={id}>
-			{options.map((option, index) => (
-				<option>{option}</option>
+		<label for={props.id}></label>
+		<select name={props.id}>
+			{props.options.map((option, index) => (
+				<option key={index}>{option}</option>
 			))}
 		</select>
 	</div>

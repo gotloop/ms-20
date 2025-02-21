@@ -1,8 +1,6 @@
 import { NumberKnob } from "../components/number-knob";
 
-import "./knobs-panel.css";
-
-export const KnobsPanel = () => (
+export const PortamentoPanel = () => (
 	<div class="knobs-panel">
 		<NumberKnob
 			id="portamento"
