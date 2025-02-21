@@ -1,4 +1,6 @@
-const BarStyles: JSX.CSSProperties = {
+import { css, Styles } from "../../styled-system/css"
+
+const BarStyles: Styles = {
 	zIndex: 3,
 	position: "absolute",
 	top: "-5px",
@@ -10,4 +12,4 @@ const BarStyles: JSX.CSSProperties = {
 }
 
 /** Separator bar */
-export const Bar = () => <div style={BarStyles}></div>
+export const Bar = () => <div className={css(BarStyles)}></div>

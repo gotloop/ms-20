@@ -1,10 +1,12 @@
+import { css, Styles } from "../../styled-system/css";
+
 export interface KnobProps {
 	steps?: string[];
 	stepStart?: number;
 	onChange?: (value: number) => void;
 }
 
-const KnobStyles = {
+const KnobStyles: Styles = {
 	display: "block",
 	width: "50px",
 	height: "50px",
@@ -14,7 +16,7 @@ const KnobStyles = {
 }
 
 export const Knob = (props: KnobProps) => (
-	<div style={KnobStyles}>
+	<div class={css(KnobStyles)}>
 		<div class="value-pointer"></div>
 	</div>
 );
