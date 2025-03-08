@@ -1,17 +1,10 @@
-import { signal } from "@preact/signals";
-
-import { state } from "./state/state";
 import "./state/effects";
 
 import { Title } from "./components/title";
 import { Body } from "./body";
 import { Footer } from "./components/footer";
-
-const debugState = {
-	enabled: signal(false),
-	displayOverlay: signal(false),
-}
-
+//
+// TODO useContext for global state
 export function App() {
 	return (
 		<>
@@ -19,9 +12,6 @@ export function App() {
 				<Title />
 				<Body />
 			</main>
-			{
-				debugState.enabled.value ?? <pre>{state.currentNote.value}</pre>
-			}
 			<Footer />
 		</>
 	);
