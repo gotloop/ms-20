@@ -1,3 +1,13 @@
+// TODO: separate context instanciation from module exports
+// (add a creation method)
+interface Nodes {
+	context: AudioContext;
+	osc1: {
+		oscillator: OscillatorNode;
+		gain: GainNode;
+	};
+}
+
 export const audioContext = new AudioContext();
 
 export const oscillator1Node = audioContext.createOscillator();
@@ -14,9 +24,15 @@ oscillator1Node.connect(oscillator1GainNode);
 
 oscillator2Node.connect(oscillator2GainNode);
 
-oscillator2GainNode.connect(output);
+oscillator1GainNode.connect(output);
 
 oscillator2GainNode.connect(output);
 
 oscillator1Node.start();
+
 oscillator2Node.start();
+
+// avoid auto-play
+if (audioContext.state === "running") {
+	audioContext.suspend();
+}

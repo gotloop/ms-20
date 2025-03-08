@@ -11,7 +11,7 @@ export interface NumberKnobProps {
 	min: number;
 	max: number;
 	value: number;
-	onChange: (value?: number) => void;
+	onChange: (value: number) => void;
 }
 
 const NumberKnobStyles: Styles = {
@@ -25,13 +25,9 @@ export const NumberKnob = (props: NumberKnobProps) => {
 
 	const input = useRef(null);
 
-	const onValueChange = (value: any) => {
-		props.onChange(value);
-	};
-
 	return (
 		<div className={css(NumberKnobStyles)}>
-			<Knob onChange={onValueChange}></Knob>
+			{/*			<Knob onChange={onValueChange}></Knob> */}
 			<label id={`${props.id}-label`} for={props.id}>
 				{props.label}
 			</label>
@@ -41,8 +37,9 @@ export const NumberKnob = (props: NumberKnobProps) => {
 				id={props.id}
 				name={props.id}
 				min={props.min}
+				max={props.max}
 				value={props.value}
-				onChange={(event) => props.onChange(/* todo: value */)}
+				onChange={(event) => props.onChange(parseFloat(event.currentTarget.value))}
 			></input>
 		</div>
 	);

@@ -1,7 +1,14 @@
 import { signal, Signal } from "@preact/signals";
 
 /** values for oscillators */
-export type WaveForm = "triangle" | "sine" | "square";
+export type WaveForm =
+	| "triangle"
+	| "rectangle"
+	| "sawtooth"
+	| "square"
+	| "pulse"
+	| "whitenoise"
+	| "ring";
 
 /** octave of the first vco */
 export type ScaleValue = 2 | 4 | 8 | 16 | 32;
@@ -17,12 +24,12 @@ export interface Ms20Setting {
 	oscillator1: {
 		waveForm: WaveForm;
 		pulseWidth: number;
-		scale: number;
+		scale: ScaleValue;
 	};
 	oscillator2: {
 		waveForm: WaveForm;
 		pitch: number;
-		scale: number;
+		scale: ScaleValue;
 	};
 	oscillatorsMixer: {
 		volume1: number;
@@ -61,12 +68,12 @@ export type Ms20SettingsState = {
 	oscillator1: {
 		waveForm: Signal<WaveForm>;
 		pulseWidth: Signal<number>;
-		scale: Signal<number>;
+		scale: Signal<ScaleValue>;
 	};
 	oscillator2: {
 		waveForm: Signal<WaveForm>;
 		pitch: Signal<number>;
-		scale: Signal<number>;
+		scale: Signal<ScaleValue>;
 	};
 	oscillatorsMixer: {
 		volume1: Signal<number>;
@@ -90,13 +97,13 @@ export const initialSetting = (): Ms20Setting => ({
 	portamento: 0,
 	oscillator1: {
 		waveForm: "triangle",
-		pulseWidth: 0,
-		scale: 0,
+		pulseWidth: 5,
+		scale: 32,
 	},
 	oscillator2: {
-		waveForm: "triangle",
+		waveForm: "sawtooth",
 		pitch: 0,
-		scale: 0,
+		scale: 16,
 	},
 	oscillatorsMixer: {
 		volume1: 100,

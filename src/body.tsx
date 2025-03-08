@@ -2,6 +2,7 @@ import { css, Styles } from "../styled-system/css";
 import { CablePanel } from "./components/cable-panel";
 import { Keyboard } from "./components/keyboard";
 import { Oscillator1Panel } from "./containers/oscillator1.panel";
+import { Oscillator2Panel } from "./containers/oscillator2.panel";
 import { PortamentoPanel } from "./containers/portamento.panel";
 import { Bar } from "./interface/bar";
 
@@ -37,6 +38,7 @@ export const Body = () => {
 	>
 		<div class={css(TopPanelStyles)}>
 			<Oscillator1Panel></Oscillator1Panel>
+			<Oscillator2Panel></Oscillator2Panel>
 			<PortamentoPanel></PortamentoPanel>
 			<CablePanel></CablePanel>
 		</div>

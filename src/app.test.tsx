@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { h } from "preact";
+import "./state/web-audio.stub";
 import { render } from "@testing-library/preact";
 import { App } from "./app";
 import axe from "axe-core";

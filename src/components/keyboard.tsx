@@ -1,4 +1,5 @@
 import { css, Styles } from "../../styled-system/css";
+import { TWELFTH_ROOT_OF_TWO } from "../state/constants";
 import { Key } from "./key";
 import { Slider } from "./slider";
 
@@ -26,10 +27,8 @@ const keys = [
 	...keysTemplate.map((note) => `${note}4`),
 ];
 
-// see https://en.wikipedia.org/wiki/Twelfth_root_of_two
-const twelveRootOfTwo = Math.pow(2, 1 / 12);
-
-const startingNote = 440 - 9 * twelveRootOfTwo;
+// A 440 to the closest C is 9 semitone
+const startingNote = 440 - 9 * TWELFTH_ROOT_OF_TWO;
 
 interface KeyAndVal {
 	color: "black" | "white";
@@ -42,7 +41,7 @@ let previousFrequency = startingNote;
 const keysAndVals: KeyAndVal[] = keys.map((keyName) => {
 
 	const blackOrWhite = keyName.includes("/");
-	const currentFrequency = previousFrequency * twelveRootOfTwo;
+	const currentFrequency = previousFrequency * TWELFTH_ROOT_OF_TWO;
 	previousFrequency = currentFrequency;
 
 	return {
