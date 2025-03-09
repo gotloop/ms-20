@@ -1,6 +1,6 @@
 import { NumberKnob } from "../components/number-knob";
 import { SelectKnob } from "../components/select-knob";
-import { ScaleValue, state, WaveForm } from "../state/state";
+import { Oscillator1WaveForm, ScaleValue, state } from "../state/state";
 
 export const Oscillator1Panel = () => {
 
@@ -16,14 +16,15 @@ export const Oscillator1Panel = () => {
 				{ label: "rectangle", value: "rectangle" },
 				{ label: "white noise", value: "whitenoise" },
 			]}
-			onChange={(formValue) => { waveForm.value = formValue as WaveForm; }}
+			onChange={(formValue) => { waveForm.value = formValue as Oscillator1WaveForm; }}
 		/>
 		<NumberKnob
 			id="osc1-pulse-width"
 			label="Pulse width"
 			min={0}
-			max={10}
-			value={0}
+			max={1}
+			value={pulseWidth.value}
+			step={0.01}
 			onChange={(value) => pulseWidth.value = value}
 		></NumberKnob >
 		<SelectKnob

@@ -1,14 +1,18 @@
 import { signal, Signal } from "@preact/signals";
 
 /** values for oscillators */
-export type WaveForm =
+
+export type Oscillator1WaveForm =
 	| "triangle"
-	| "rectangle"
+	| "sawtooth"
+	| "rectangle" // change according to pulse-width
+	| "whitenoise";
+
+export type Oscillator2WaveForm =
 	| "sawtooth"
 	| "square"
-	| "pulse"
-	| "whitenoise"
-	| "ring";
+	| "pulse" // to implement with periodwave (small)
+	| "ring"; // todo later, combine two osc 2 ?
 
 /** octave of the first vco */
 export type ScaleValue = 2 | 4 | 8 | 16 | 32;
@@ -22,12 +26,12 @@ export interface Ms20Setting {
 	portamento: number;
 	masterTune: number;
 	oscillator1: {
-		waveForm: WaveForm;
+		waveForm: Oscillator1WaveForm;
 		pulseWidth: number;
 		scale: ScaleValue;
 	};
 	oscillator2: {
-		waveForm: WaveForm;
+		waveForm: Oscillator2WaveForm;
 		pitch: number;
 		scale: ScaleValue;
 	};
@@ -67,12 +71,12 @@ export type Ms20SettingsState = {
 	label: Signal<string | undefined>;
 	masterTune: Signal<number>;
 	oscillator1: {
-		waveForm: Signal<WaveForm>;
+		waveForm: Signal<Oscillator1WaveForm>;
 		pulseWidth: Signal<number>;
 		scale: Signal<ScaleValue>;
 	};
 	oscillator2: {
-		waveForm: Signal<WaveForm>;
+		waveForm: Signal<Oscillator2WaveForm>;
 		pitch: Signal<number>;
 		scale: Signal<ScaleValue>;
 	};
@@ -99,7 +103,7 @@ export const initialSetting = (): Ms20Setting => ({
 	portamento: 0,
 	oscillator1: {
 		waveForm: "triangle",
-		pulseWidth: 5,
+		pulseWidth: 0.5,
 		scale: 32,
 	},
 	oscillator2: {
