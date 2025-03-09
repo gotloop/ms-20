@@ -6,6 +6,7 @@ import {
 	oscillator2Node,
 	oscillator1GainNode,
 	oscillator2GainNode,
+	masterVolumeNode,
 } from "./audio-graph";
 import { oscillator1Frequency, oscillator2Frequency } from "./computed";
 
@@ -44,4 +45,10 @@ effect(() => {
 	if (state.isPlaying.value === false) {
 		audioContext.suspend();
 	}
+});
+
+// --- master volume
+
+effect(() => {
+	masterVolumeNode.gain.value = state.currentSetting.masterVolume.value;
 });

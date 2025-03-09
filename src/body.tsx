@@ -1,9 +1,10 @@
 import { css, Styles } from "../styled-system/css";
-import { CablePanel } from "./components/cable-panel";
 import { Keyboard } from "./components/keyboard";
+import { MasterVolumePanel } from "./containers/master-volume.panel";
 import { OscillatorMixerPanel } from "./containers/oscillator-mixer.panel";
 import { Oscillator1Panel } from "./containers/oscillator1.panel";
 import { Oscillator2Panel } from "./containers/oscillator2.panel";
+import { PatchPanel } from "./containers/patch.panel";
 import { PortamentoPanel } from "./containers/portamento.panel";
 import { Bar } from "./interface/bar";
 
@@ -38,15 +39,18 @@ export const Body = () => {
 		method="post"
 	>
 		<div class={css(TopPanelStyles)}>
-			<Oscillator1Panel></Oscillator1Panel>
-			<Oscillator2Panel></Oscillator2Panel>
-			<OscillatorMixerPanel></OscillatorMixerPanel>
-			<PortamentoPanel></PortamentoPanel>
-			<CablePanel></CablePanel>
+			<Oscillator1Panel />
+			<Oscillator2Panel />
+			<OscillatorMixerPanel />
+			<PortamentoPanel />
+		</div>
+		<div class="top-right">
+			<MasterVolumePanel />
+			<PatchPanel />
 		</div>
 		<div class={css(KeyboardStyles)}>
 			<Bar />
-			<Keyboard></Keyboard>
+			<Keyboard />
 		</div>
 	</form>
 
