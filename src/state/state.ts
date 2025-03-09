@@ -59,6 +59,7 @@ export interface Ms20Setting {
 		releaseTime: number;
 	};
 	*/
+	masterVolume: number;
 }
 // todo: setup recursive type
 export type Ms20SettingsState = {
@@ -79,6 +80,7 @@ export type Ms20SettingsState = {
 		volume1: Signal<number>;
 		volume2: Signal<number>;
 	};
+	masterVolume: Signal<number>;
 };
 
 /** Main state of the app. */
@@ -119,6 +121,7 @@ export const initialSetting = (): Ms20Setting => ({
 		peak: 0,
 	},
 	*/
+	masterVolume: 100,
 });
 
 export function createStateFromSettings(state: Ms20Setting): Ms20SettingsState {
@@ -140,6 +143,7 @@ export function createStateFromSettings(state: Ms20Setting): Ms20SettingsState {
 			volume1: signal(state.oscillatorsMixer.volume1),
 			volume2: signal(state.oscillatorsMixer.volume2),
 		},
+		masterVolume: signal(state.masterVolume),
 	};
 }
 

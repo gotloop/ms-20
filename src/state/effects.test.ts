@@ -3,6 +3,7 @@ import "./web-audio.stub";
 import { state } from "./state";
 import "./effects";
 import {
+	masterVolumeNode,
 	oscillator1GainNode,
 	oscillator1Node,
 	oscillator2GainNode,
@@ -33,6 +34,13 @@ describe("effects", () => {
 			state.currentSetting.oscillatorsMixer.volume2.value = 75;
 
 			expect(oscillator2GainNode.gain.value).toBe(75);
+		});
+	});
+	describe("master volume", () => {
+		it("should set master volume node gain", () => {
+			state.currentSetting.masterVolume.value = 25;
+
+			expect(masterVolumeNode.gain.value).toBe(25);
 		});
 	});
 });
