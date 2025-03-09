@@ -2,21 +2,21 @@
 
 ## OSCILLATORS
 
-- 7 types de fréquences
-	- "triangle"
-	- "rectangle"
-	- "sawtooth"
-	- "square"
-	- "pulse"
-	- "whitenoise"
-	- "ring"
+- [~] 7 types de fréquences
+	- [ ] "triangle"
+	- [ ] "rectangle"
+	- [ ] "sawtooth"
+	- [ ] "square"
+	- [ ] "pulse"
+	- [ ] "whitenoise"
+	- [ ] "ring"
 - gestion du pulse-width
 
 ---
 
 ## VOLUME
-- master volume
-- mixer oscillator 1 / 2v
+- [x] master volume
+- [x] mixer oscillator 1 / 2v
 
 ## PORTAMENTO + MASTER TUNE
 - [ ] portamento
