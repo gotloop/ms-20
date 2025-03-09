@@ -9,6 +9,7 @@ import {
 	masterVolumeNode,
 } from "./audio-graph";
 import { oscillator1Frequency, oscillator2Frequency } from "./computed";
+import { createPulseWave, createRectangleWave } from "./wave-forms";
 
 // --- oscillators
 // link computed frequencies to oscillator nodes
@@ -20,6 +21,55 @@ effect(() => {
 	oscillator2Node.frequency.value = oscillator2Frequency.value;
 });
 
+effect(() => {
+	const waveFormValue = state.currentSetting.oscillator1.waveForm.value;
+	const pulseWidthValue = state.currentSetting.oscillator1.pulseWidth.value;
+	switch (waveFormValue) {
+		case "triangle":
+			oscillator1Node.type = "triangle";
+			break;
+		case "sawtooth":
+			oscillator1Node.type = "sawtooth";
+			break;
+		case "rectangle":
+			const { real, imag } = createRectangleWave(pulseWidthValue);
+			oscillator1Node.setPeriodicWave(
+				audioContext.createPeriodicWave(real, imag, {
+					disableNormalization: false,
+				}),
+			);
+			break;
+		case "whitenoise":
+			oscillator1Node.type = "custom";
+			break;
+	}
+});
+
+effect(() => {
+	const waveFormValue = state.currentSetting.oscillator2.waveForm.value;
+	switch (waveFormValue) {
+		case "sawtooth":
+			oscillator1Node.type = "sawtooth";
+			break;
+		case "square":
+			oscillator2Node.type = "square";
+			break;
+		case "pulse":
+			const { real, imag } = createPulseWave();
+			oscillator2Node.setPeriodicWave(
+				audioContext.createPeriodicWave(real, imag, {
+					disableNormalization: true,
+				}),
+			);
+			break;
+		case "ring":
+			// TODO
+			oscillator2Node.type = "sine";
+			break;
+		default:
+			console.log("never");
+	}
+});
 effect(() => {
 	oscillator2Node.detune.value = state.currentSetting.oscillator2.pitch.value;
 });
