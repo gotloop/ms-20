@@ -17,7 +17,7 @@ export const SelectKnob = (props: SelectKnobProps<string | number | undefined>) 
 	return (
 		<div class="select-knob">
 			{/*		<Knob></Knob> */}
-			<label for={id}>{label}</label>
+			<label for={id}>{label}<br /></label>
 			<select id={id} onChange={(event) => {
 				onChange(event.currentTarget.value);
 			}}>

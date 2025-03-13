@@ -4,7 +4,7 @@ import { ScaleValue, state, WaveForm } from "../state/state";
 
 export const Oscillator2Panel = () => {
 	const { waveForm, pitch, scale } = state.currentSetting.oscillator2;
-	return <>
+	return <fieldset><legend>Oscillator 2</legend>
 		<SelectKnob
 			id="osc2-waveform"
 			label="Wave Form"
@@ -41,5 +41,5 @@ export const Oscillator2Panel = () => {
 				scale.value = value as ScaleValue;
 			}}
 		/>
-	</>
+	</fieldset>
 };
