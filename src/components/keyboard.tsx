@@ -1,3 +1,4 @@
+import { useMemo } from "preact/hooks";
 import { css, Styles } from "../../styled-system/css";
 import { TWELFTH_ROOT_OF_TWO } from "../state/constants";
 import { Key } from "./key";
@@ -30,7 +31,7 @@ const keys = [
 // A 440 to the closest C is 9 semitone
 const startingNote = 440 - 9 * TWELFTH_ROOT_OF_TWO;
 
-interface KeyAndVal {
+interface KeyValues {
 	color: "black" | "white";
 	note: string;
 	freq: number;
@@ -38,7 +39,7 @@ interface KeyAndVal {
 
 let previousFrequency = startingNote;
 
-const keysAndVals: KeyAndVal[] = keys.map((keyName) => {
+const createKeysArray = (): KeyValues[] => keys.map((keyName) => {
 
 	const blackOrWhite = keyName.includes("/");
 	const currentFrequency = previousFrequency * TWELFTH_ROOT_OF_TWO;
@@ -62,11 +63,13 @@ const KeyBoardContainerStyles: Styles = {
 	* @see https://en.wikipedia.org/wiki/Piano_key_frequencies
 	* @returns
 	*/
-export const Keyboard = () => (
-	<div className={css(KeyBoardContainerStyles)}>
+export const Keyboard = () => {
+	const keyValues: KeyValues[] = useMemo(() => createKeysArray(), []);
+	return (<div className={css(KeyBoardContainerStyles)}>
 		<Slider></Slider>
-		{Array.from(keysAndVals).map((key) => (
+		{keyValues.map((key) => (
 			<Key color={key.color} note={key.note} freq={key.freq}></Key>
 		))}
 	</div>
-);
+	)
+};
