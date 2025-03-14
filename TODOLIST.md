@@ -3,11 +3,11 @@
 ## OSCILLATORS
 
 - [~] 7 types de fréquences
-	- [ ] "triangle"
-	- [ ] "rectangle"
-	- [ ] "sawtooth"
-	- [ ] "square"
-	- [ ] "pulse"
+	- [x] "triangle"
+	- [ ] "rectangle" (to custom)
+	- [x] "sawtooth" 
+	- [x] "square"
+	- [ ] "pulse" ( to custom)
 	- [ ] "whitenoise"
 	- [ ] "ring"
 - gestion du pulse-width
