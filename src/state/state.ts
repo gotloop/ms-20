@@ -70,6 +70,7 @@ export type Ms20SettingsState = {
 	id: Signal<number>;
 	label: Signal<string | undefined>;
 	masterTune: Signal<number>;
+	portamento: Signal<number>;
 	oscillator1: {
 		waveForm: Signal<Oscillator1WaveForm>;
 		pulseWidth: Signal<number>;
@@ -133,6 +134,7 @@ export function createStateFromSettings(state: Ms20Setting): Ms20SettingsState {
 		id: signal(state.id),
 		label: signal(state.label),
 		masterTune: signal(state.masterTune),
+		portamento: signal(state.portamento),
 		oscillator1: {
 			waveForm: signal(state.oscillator1.waveForm),
 			pulseWidth: signal(state.oscillator1.pulseWidth),

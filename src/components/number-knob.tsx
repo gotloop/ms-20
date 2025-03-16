@@ -11,6 +11,7 @@ export interface NumberKnobProps {
 	min: number;
 	max: number;
 	value: number;
+	step?: number;
 	onChange: (value: number) => void;
 }
 
@@ -38,6 +39,7 @@ export const NumberKnob = (props: NumberKnobProps) => {
 				name={props.id}
 				min={props.min}
 				max={props.max}
+				step={props.step}
 				value={props.value}
 				onChange={(event) => props.onChange(parseFloat(event.currentTarget.value))}
 			></input>
