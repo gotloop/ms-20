@@ -12,5 +12,8 @@ export default defineConfig({
 				html: readFileSync("index.html").toString(),
 			},
 		},
+		coverage: {
+			reporter: ["text", "json", "html", "lcov"],
+		},
 	},
 });
