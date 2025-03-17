@@ -70,18 +70,28 @@ effect(() => {
 			console.log("never");
 	}
 });
+
 effect(() => {
-	oscillator2Node.detune.value = state.currentSetting.oscillator2.pitch.value;
+	// get octave below and above frequencies
+	const detunedLimitMin = state.currentNote.value / 2;
+	const detunedLimitMax = state.currentNote.value * 2;
+	// values goes from -1 to 1 in the form, bring it to range 0-1;
+	const pitchValue = (state.currentSetting.oscillator2.pitch.value + 1) / 2;
+
+	const frequencyOffset =
+		detunedLimitMin + (detunedLimitMax - detunedLimitMin) * pitchValue;
+	oscillator2Node.detune.value = frequencyOffset * 100; // in cents
 });
 
 // --- volume mixer
 effect(() => {
 	oscillator1GainNode.gain.value =
-		state.currentSetting.oscillatorsMixer.volume1.value;
+		state.currentSetting.oscillatorsMixer.volume1.value / 100;
 });
+
 effect(() => {
 	oscillator2GainNode.gain.value =
-		state.currentSetting.oscillatorsMixer.volume2.value;
+		state.currentSetting.oscillatorsMixer.volume2.value / 100;
 });
 
 // --- keyboard / playing state
@@ -100,5 +110,5 @@ effect(() => {
 // --- master volume
 
 effect(() => {
-	masterVolumeNode.gain.value = state.currentSetting.masterVolume.value;
+	masterVolumeNode.gain.value = state.currentSetting.masterVolume.value / 100;
 });

@@ -25,7 +25,7 @@ export const Oscillator2Panel = () => {
 			min={-1}
 			max={1}
 			value={pitch.value}
-			step={0.1}
+			step={0.01}
 			onChange={(value) => pitch.value = value}
 		/>
 		<SelectKnob
