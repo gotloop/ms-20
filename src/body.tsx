@@ -1,5 +1,6 @@
 import { css, Styles } from "../styled-system/css";
 import { Keyboard } from "./components/keyboard";
+import { ExternalSignalPanel } from "./containers/external-signal.panel";
 import { MasterVolumePanel } from "./containers/master-volume.panel";
 import { OscillatorMixerPanel } from "./containers/oscillator-mixer.panel";
 import { Oscillator1Panel } from "./containers/oscillator1.panel";
@@ -45,8 +46,8 @@ export const Body = () => {
 			<PortamentoPanel />
 		</div>
 		<div class="top-right">
-			<MasterVolumePanel />
 			<PatchPanel />
+			<ExternalSignalPanel />
 		</div>
 		<div class={css(KeyboardStyles)}>
 			<Bar />

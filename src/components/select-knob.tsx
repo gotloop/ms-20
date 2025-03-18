@@ -1,5 +1,7 @@
 import { Knob } from "./knob";
 
+import { css, Styles } from '../../styled-system/css';
+
 export interface SelectKnobProps<T> {
 	id: string;
 	label: string;
@@ -12,12 +14,15 @@ export interface SelectOption<T> {
 	label: string;
 	value: T;
 }
+
 export const SelectKnob = (props: SelectKnobProps<string | number | undefined>) => {
 	const { id, label, options, onChange } = props;
 	return (
-		<div class="select-knob">
+		<div class={css({ display: "flex", flexDirection: "column", })}>
 			{/*		<Knob></Knob> */}
-			<label for={id}>{label}</label>
+			<label for={id}
+			>{label}</label>
+			<br />
 			<select id={id} onChange={(event) => {
 				onChange(event.currentTarget.value);
 			}}>

@@ -32,6 +32,7 @@ export const NumberKnob = (props: NumberKnobProps) => {
 			<label id={`${props.id}-label`} for={props.id}>
 				{props.label}
 			</label>
+			<br />
 			<input
 				type="range"
 				ref={input}

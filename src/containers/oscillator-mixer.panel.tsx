@@ -1,9 +1,10 @@
 import { NumberKnob } from "../components/number-knob";
+import { Panel } from "../components/panel";
 import { state } from "../state/state";
 
 export const OscillatorMixerPanel = () => {
 	const { volume1, volume2 } = state.currentSetting.oscillatorsMixer;
-	return <>
+	return <Panel title="Oscillators Mixer">
 		<NumberKnob
 			id="volume-osc-1"
 			label="vol 1"
@@ -20,5 +21,5 @@ export const OscillatorMixerPanel = () => {
 			value={volume2.value}
 			onChange={(value) => volume2.value = value}
 		/>
-	</>;
+	</Panel>;
 }
