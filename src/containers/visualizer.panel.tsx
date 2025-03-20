@@ -63,6 +63,6 @@ export const VisualizerPanel = () => {
 	}, [draw]);
 
 	return (<Panel title="Visualizer" areaName="viz">
-		<canvas ref={canvasRef} width="186" height="100"></canvas>
+		<canvas ref={canvasRef} width="230" height="100"></canvas>
 	</Panel>);
 }
