@@ -1,4 +1,4 @@
-import { FunctionalComponent } from "preact";
+import { FunctionComponent } from "preact";
 import { Panel } from "../components/panel";
 
-export const ExternalSignalPanel: FunctionalComponent = () => (<Panel title="External Signal"></Panel>)
+export const ExternalSignalPanel: FunctionComponent = () => (<Panel title="External Signal"></Panel>)

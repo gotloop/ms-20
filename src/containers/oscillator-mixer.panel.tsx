@@ -4,7 +4,7 @@ import { state } from "../state/state";
 
 export const OscillatorMixerPanel = () => {
 	const { volume1, volume2 } = state.currentSetting.oscillatorsMixer;
-	return <Panel title="Oscillators Mixer">
+	return <Panel title="Oscillators Mixer" areaName="mix">
 		<NumberKnob
 			id="volume-osc-1"
 			label="vol 1"

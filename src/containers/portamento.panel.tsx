@@ -5,7 +5,7 @@ import { state } from "../state/state";
 export const PortamentoPanel = () => {
 	const { portamento } = state.currentSetting;
 	return (
-		<Panel title="Portamento">
+		<Panel title="Portamento" areaName="port">
 			<NumberKnob
 				id="portamento"
 				label="time"

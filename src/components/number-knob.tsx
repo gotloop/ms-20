@@ -29,7 +29,7 @@ export const NumberKnob = (props: NumberKnobProps) => {
 	return (
 		<div className={css(NumberKnobStyles)}>
 			{/*			<Knob onChange={onValueChange}></Knob> */}
-			<label id={`${props.id}-label`} for={props.id}>
+			<label id={`${props.id}-label`} for={props.id} class={css({ fontSize: "1rem" })}>
 				{props.label}
 			</label>
 			<br />
@@ -37,6 +37,7 @@ export const NumberKnob = (props: NumberKnobProps) => {
 				type="range"
 				ref={input}
 				id={props.id}
+				class={css({ maxWidth: "100px" })}
 				name={props.id}
 				min={props.min}
 				max={props.max}

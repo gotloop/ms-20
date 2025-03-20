@@ -13,6 +13,5 @@ export const MasterVolumePanel: FunctionComponent = () => {
 			value={masterVolume.value}
 			onChange={(value) => masterVolume.value = value}
 		/>
-		<pre>{masterVolume.value}</pre>
 	</>
 }

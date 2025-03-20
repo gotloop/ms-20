@@ -5,7 +5,7 @@ import { Oscillator1WaveForm, ScaleValue, state } from "../state/state";
 
 export const Oscillator1Panel = () => {
 	const { waveForm, pulseWidth, scale } = state.currentSetting.oscillator1;
-	return <Panel title="Oscillator 1">
+	return <Panel title="Oscillator 1" areaName="osc1">
 		<SelectKnob
 			id="osc1-wave-form"
 			label="Wave Form"

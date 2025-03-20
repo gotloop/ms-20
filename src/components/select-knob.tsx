@@ -1,6 +1,4 @@
-import { Knob } from "./knob";
-
-import { css, Styles } from '../../styled-system/css';
+import { css } from '../../styled-system/css';
 
 export interface SelectKnobProps<T> {
 	id: string;
@@ -20,16 +18,23 @@ export const SelectKnob = (props: SelectKnobProps<string | number | undefined>) 
 	return (
 		<div class={css({ display: "flex", flexDirection: "column", })}>
 			{/*		<Knob></Knob> */}
-			<label for={id}
+			<label for={id} class={css({ fontSize: "1rem" })}
 			>{label}</label>
 			<br />
-			<select id={id} onChange={(event) => {
-				onChange(event.currentTarget.value);
-			}}>
+			<select
+				id={id}
+				class={css({ maxWidth: "100px", fontSize: "1rem" })}
+				onChange={(event) => {
+					onChange(event.currentTarget.value);
+				}}>
 				{options.map((option, index) => (
 					<option
 						key={index}
-						value={option.value}>{option.label}</option>
+						value={option.value}
+						class={css({ fontSize: "1rem" })}
+					>{
+							option.label
+						}</option>
 				))}
 			</select>
 		</div>
