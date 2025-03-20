@@ -39,7 +39,6 @@ export interface Ms20Setting {
 		volume1: number;
 		volume2: number;
 	};
-	/*
 	highPassFilter: {
 		frequencyCutoff: number;
 		peak: number;
@@ -48,7 +47,8 @@ export interface Ms20Setting {
 		frequencyCutoff: number;
 		peak: number;
 	};
-	frequencyModulation: {};
+	/*
+  frequencyModulation: {};
 	modulationGenerator: {};
 	envelopeGenerator1: {
 		delayTime: number;
@@ -85,6 +85,14 @@ export type Ms20SettingsState = {
 		volume1: Signal<number>;
 		volume2: Signal<number>;
 	};
+	highPassFilter: {
+		frequencyCutoff: Signal<number>;
+		peak: Signal<number>;
+	};
+	lowPassFilter: {
+		frequencyCutoff: Signal<number>;
+		peak: Signal<number>;
+	};
 	masterVolume: Signal<number>;
 };
 
@@ -116,7 +124,6 @@ export const initialSetting = (): Ms20Setting => ({
 		volume1: 100,
 		volume2: 100,
 	},
-	/*
 	highPassFilter: {
 		frequencyCutoff: 0,
 		peak: 0,
@@ -125,7 +132,6 @@ export const initialSetting = (): Ms20Setting => ({
 		frequencyCutoff: 0,
 		peak: 0,
 	},
-	*/
 	masterVolume: 100,
 });
 
@@ -148,6 +154,14 @@ export function createStateFromSettings(state: Ms20Setting): Ms20SettingsState {
 		oscillatorsMixer: {
 			volume1: signal(state.oscillatorsMixer.volume1),
 			volume2: signal(state.oscillatorsMixer.volume2),
+		},
+		highPassFilter: {
+			frequencyCutoff: signal(state.highPassFilter.frequencyCutoff),
+			peak: signal(state.highPassFilter.peak),
+		},
+		lowPassFilter: {
+			frequencyCutoff: signal(state.lowPassFilter.frequencyCutoff),
+			peak: signal(state.lowPassFilter.peak),
 		},
 		masterVolume: signal(state.masterVolume),
 	};
