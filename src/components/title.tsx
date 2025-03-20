@@ -1,7 +1,7 @@
 import { css, Styles } from "../../styled-system/css"
 
 const TitleStyles: Styles = {
-	fontSize: "9rem",
+	fontSize: "4rem",
 	fontWeight: "bold",
 	color: "rgba(255, 255, 255, 10%)",
 	position: "absolute",
@@ -10,7 +10,7 @@ const TitleStyles: Styles = {
 	overflow: "hidden",
 	fontFamily: "system-ui",
 	writingMode: "vertical-lr",
-	left: "-50px",
+	left: "-30px",
 	wordBreak: "unset",
 	wordWrap: "unset",
 	margin: 0,
