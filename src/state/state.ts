@@ -141,7 +141,7 @@ export const initialSetting = (): Ms20Setting => ({
 		peak: 0,
 	},
 	lowPassFilter: {
-		frequencyCutoff: 0,
+		frequencyCutoff: 10,
 		peak: 0,
 	},
 	envelopeGenerator1: {
@@ -153,7 +153,7 @@ export const initialSetting = (): Ms20Setting => ({
 		holdTime: 0,
 		attackTime: 0,
 		decayTime: 0,
-		sustainLevel: 0,
+		sustainLevel: 10,
 		releaseTime: 0,
 	},
 	masterVolume: 100,
