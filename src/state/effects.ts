@@ -10,6 +10,7 @@ import {
 	highPassFilterNode,
 	lowPassFilterNode,
 	envelopeGenerator1GainNode,
+	envelopeGenerator2GainNode,
 } from "./audio-graph";
 import { oscillator1Frequency, oscillator2Frequency } from "./computed";
 import { createPulseWave, createRectangleWave } from "./wave-forms";
@@ -156,6 +157,39 @@ effect(() => {
 			audioContext.currentTime + delayTime.value + attackTime.value,
 		);
 	} else {
+		envelopeGenerator1GainNode.gain.linearRampToValueAtTime(
+			0,
+			audioContext.currentTime + releaseTime.value,
+		);
+	}
+});
+// envelope generator 2
+effect(() => {
+	const { isPlaying } = state;
+	const { attackTime, holdTime, decayTime, sustainLevel, releaseTime } =
+		state.currentSetting.envelopeGenerator2;
+	if (isPlaying.value) {
+		// ramp up to attackTime
+		envelopeGenerator2GainNode.gain.setValueAtTime(
+			1.0,
+			audioContext.currentTime + attackTime.value,
+		);
+		// decay to sustain level
+		const realLevel = sustainLevel.value / 10;
+		envelopeGenerator2GainNode.gain.linearRampToValueAtTime(
+			realLevel,
+			audioContext.currentTime + attackTime.value + decayTime.value,
+		);
+		// hold
+		envelopeGenerator2GainNode.gain.linearRampToValueAtTime(
+			realLevel,
+			audioContext.currentTime +
+				attackTime.value +
+				decayTime.value +
+				holdTime.value,
+		);
+	} else {
+		// release
 		envelopeGenerator1GainNode.gain.linearRampToValueAtTime(
 			0,
 			audioContext.currentTime + releaseTime.value,
