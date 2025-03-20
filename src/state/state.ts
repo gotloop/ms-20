@@ -50,6 +50,7 @@ export interface Ms20Setting {
 	/*
   frequencyModulation: {};
 	modulationGenerator: {};
+	*/
 	envelopeGenerator1: {
 		delayTime: number;
 		attackTime: number;
@@ -62,7 +63,6 @@ export interface Ms20Setting {
 		sustainLevel: number;
 		releaseTime: number;
 	};
-	*/
 	masterVolume: number;
 }
 // todo: setup recursive type
@@ -92,6 +92,18 @@ export type Ms20SettingsState = {
 	lowPassFilter: {
 		frequencyCutoff: Signal<number>;
 		peak: Signal<number>;
+	};
+	envelopeGenerator1: {
+		delayTime: Signal<number>;
+		attackTime: Signal<number>;
+		releaseTime: Signal<number>;
+	};
+	envelopeGenerator2: {
+		holdTime: Signal<number>;
+		attackTime: Signal<number>;
+		decayTime: Signal<number>;
+		sustainLevel: Signal<number>;
+		releaseTime: Signal<number>;
 	};
 	masterVolume: Signal<number>;
 };
@@ -132,6 +144,18 @@ export const initialSetting = (): Ms20Setting => ({
 		frequencyCutoff: 0,
 		peak: 0,
 	},
+	envelopeGenerator1: {
+		delayTime: 0,
+		attackTime: 0,
+		releaseTime: 0,
+	},
+	envelopeGenerator2: {
+		holdTime: 0,
+		attackTime: 0,
+		decayTime: 0,
+		sustainLevel: 0,
+		releaseTime: 0,
+	},
 	masterVolume: 100,
 });
 
@@ -162,6 +186,18 @@ export function createStateFromSettings(state: Ms20Setting): Ms20SettingsState {
 		lowPassFilter: {
 			frequencyCutoff: signal(state.lowPassFilter.frequencyCutoff),
 			peak: signal(state.lowPassFilter.peak),
+		},
+		envelopeGenerator1: {
+			delayTime: signal(state.envelopeGenerator1.delayTime),
+			attackTime: signal(state.envelopeGenerator1.attackTime),
+			releaseTime: signal(state.envelopeGenerator1.releaseTime),
+		},
+		envelopeGenerator2: {
+			holdTime: signal(state.envelopeGenerator2.holdTime),
+			attackTime: signal(state.envelopeGenerator2.attackTime),
+			decayTime: signal(state.envelopeGenerator2.decayTime),
+			sustainLevel: signal(state.envelopeGenerator2.sustainLevel),
+			releaseTime: signal(state.envelopeGenerator2.releaseTime),
 		},
 		masterVolume: signal(state.masterVolume),
 	};

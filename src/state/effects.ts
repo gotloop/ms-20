@@ -9,6 +9,7 @@ import {
 	masterVolumeNode,
 	highPassFilterNode,
 	lowPassFilterNode,
+	envelopeGenerator1GainNode,
 } from "./audio-graph";
 import { oscillator1Frequency, oscillator2Frequency } from "./computed";
 import { createPulseWave, createRectangleWave } from "./wave-forms";
@@ -95,7 +96,7 @@ effect(() => {
 		audioContext.resume();
 	}
 	if (state.isPlaying.value === false) {
-		audioContext.suspend();
+		// audioContext.suspend();
 	}
 });
 
@@ -135,4 +136,29 @@ effect(() => {
 	// value from 0 to 10
 	const { peak } = state.currentSetting.lowPassFilter;
 	lowPassFilterNode.Q.value = peak.value * MAX_PEAK_VALUE;
+});
+
+// --- Envelope generators
+
+// envelope generator 1
+effect(() => {
+	const { isPlaying } = state;
+	const { attackTime, delayTime, releaseTime } =
+		state.currentSetting.envelopeGenerator1;
+	if (isPlaying.value) {
+		envelopeGenerator1GainNode.gain.value = 0;
+		envelopeGenerator1GainNode.gain.setValueAtTime(
+			0,
+			audioContext.currentTime + delayTime.value,
+		);
+		envelopeGenerator1GainNode.gain.linearRampToValueAtTime(
+			1.0,
+			audioContext.currentTime + delayTime.value + attackTime.value,
+		);
+	} else {
+		envelopeGenerator1GainNode.gain.linearRampToValueAtTime(
+			0,
+			audioContext.currentTime + releaseTime.value,
+		);
+	}
 });
