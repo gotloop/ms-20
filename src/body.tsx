@@ -22,7 +22,7 @@ import { Bar } from "./interface/bar";
 const MainLayoutStyles: Styles = {
 	maxWidth: "1024px",
 	background: "#333",
-	height: "640px",
+	height: "720px",
 	display: "flex",
 	flexDirection: "column",
 	margin: "0 auto",
