@@ -88,8 +88,10 @@ export const Body = () => {
 				<VisualizerPanel />
 			</div>
 			<div class={css(RightPanelStyles)}>
+				{/*
 				<PatchPanel />
 				<ExternalSignalPanel />
+			  */}
 			</div>
 		</div>
 		<div class={css(KeyboardStyles)}>
