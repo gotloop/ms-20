@@ -1,4 +1,4 @@
 import { Panel } from "../components/panel";
 
-export const LowPassFilter = () => <Panel title="Low Pass Filter">{/* TODO */}</Panel>;
+export const LowPassFilterPanel = () => <Panel title="Low Pass Filter" areaName="lpf">{/* TODO */}</Panel>;
 

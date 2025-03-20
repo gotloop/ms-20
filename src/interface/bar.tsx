@@ -3,7 +3,6 @@ import { css, Styles } from "../../styled-system/css"
 const BarStyles: Styles = {
 	zIndex: 3,
 	position: "absolute",
-	top: "-5px",
 	right: "0",
 	left: "0",
 	height: "10px",

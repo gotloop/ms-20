@@ -1,3 +1,3 @@
 import { Panel } from "../components/panel";
 
-export const HighPassFilter = () => <Panel title="High Pass Filter">{/* TODO */}</Panel>;
+export const HighPassFilterPanel = () => <Panel title="High Pass Filter" areaName="hpf">{/* TODO */}</Panel>;
