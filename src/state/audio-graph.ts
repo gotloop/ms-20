@@ -11,6 +11,10 @@ export const oscillator2Node = audioContext.createOscillator();
 export const oscillator1GainNode = audioContext.createGain();
 
 export const oscillator2GainNode = audioContext.createGain();
+// Generators gain nodes
+export const envelopeGenerator1GainNode = audioContext.createGain();
+
+export const envelopeGenerator2GainNode = audioContext.createGain();
 
 // Filters
 
@@ -45,17 +49,21 @@ oscillator1Node.connect(oscillator1GainNode);
 
 oscillator2Node.connect(oscillator2GainNode);
 
-oscillator1GainNode.connect(lowPassFilterNode);
+oscillator1GainNode.connect(envelopeGenerator1GainNode);
 
-oscillator2GainNode.connect(lowPassFilterNode);
+oscillator2GainNode.connect(envelopeGenerator1GainNode);
+
+envelopeGenerator1GainNode.connect(lowPassFilterNode);
 
 lowPassFilterNode.connect(highPassFilterNode);
 
-highPassFilterNode.connect(masterVolumeNode);
+highPassFilterNode.connect(envelopeGenerator2GainNode);
 
 oscillator1GainNode.connect(analyzerNode1);
 
 oscillator2GainNode.connect(analyzerNode2);
+
+envelopeGenerator2GainNode.connect(masterVolumeNode);
 
 masterVolumeNode.connect(output);
 
