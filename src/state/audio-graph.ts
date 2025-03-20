@@ -2,6 +2,8 @@ export const FFT_SIZE = 2048;
 
 export const audioContext = new AudioContext();
 
+// Oscillators
+
 export const oscillator1Node = audioContext.createOscillator();
 
 export const oscillator2Node = audioContext.createOscillator();
@@ -9,6 +11,18 @@ export const oscillator2Node = audioContext.createOscillator();
 export const oscillator1GainNode = audioContext.createGain();
 
 export const oscillator2GainNode = audioContext.createGain();
+
+// Filters
+
+export const lowPassFilterNode = audioContext.createBiquadFilter();
+
+lowPassFilterNode.type = "lowpass";
+
+export const highPassFilterNode = audioContext.createBiquadFilter();
+
+highPassFilterNode.type = "highpass";
+
+// Analysers
 
 export const analyzerNode1 = audioContext.createAnalyser();
 analyzerNode1.fftSize = FFT_SIZE;
@@ -20,6 +34,7 @@ analyzerNode2.fftSize = FFT_SIZE;
 
 export const analyzerBuffer2 = new Uint8Array(analyzerNode2.frequencyBinCount);
 
+// Outputs
 export const masterVolumeNode = audioContext.createGain();
 
 export const output = audioContext.destination;
@@ -30,9 +45,13 @@ oscillator1Node.connect(oscillator1GainNode);
 
 oscillator2Node.connect(oscillator2GainNode);
 
-oscillator1GainNode.connect(masterVolumeNode);
+oscillator1GainNode.connect(lowPassFilterNode);
 
-oscillator2GainNode.connect(masterVolumeNode);
+oscillator2GainNode.connect(lowPassFilterNode);
+
+lowPassFilterNode.connect(highPassFilterNode);
+
+highPassFilterNode.connect(masterVolumeNode);
 
 oscillator1GainNode.connect(analyzerNode1);
 

@@ -7,6 +7,8 @@ import {
 	oscillator1GainNode,
 	oscillator2GainNode,
 	masterVolumeNode,
+	highPassFilterNode,
+	lowPassFilterNode,
 } from "./audio-graph";
 import { oscillator1Frequency, oscillator2Frequency } from "./computed";
 import { createPulseWave, createRectangleWave } from "./wave-forms";
@@ -101,4 +103,36 @@ effect(() => {
 
 effect(() => {
 	masterVolumeNode.gain.value = state.currentSetting.masterVolume.value;
+});
+
+// FILTERS
+// these kinda work, but values might need adjustments
+
+const MAX_CUTOFF_FREQUENCY = 100;
+const MAX_PEAK_VALUE = 200; // max is 770, see https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode/Q
+// --- high pass filter
+// frequencyCutoff value in Hz
+effect(() => {
+	// value from 0 to 10
+	const { frequencyCutoff } = state.currentSetting.highPassFilter;
+	highPassFilterNode.frequency.value =
+		40 + frequencyCutoff.value * MAX_CUTOFF_FREQUENCY;
+});
+effect(() => {
+	// value from 0 to 10
+	const { peak } = state.currentSetting.highPassFilter;
+	highPassFilterNode.Q.value = peak.value * MAX_PEAK_VALUE;
+});
+
+// --- low pass filter
+effect(() => {
+	const { frequencyCutoff } = state.currentSetting.lowPassFilter;
+	lowPassFilterNode.frequency.value =
+		10 + frequencyCutoff.value * MAX_CUTOFF_FREQUENCY;
+});
+
+effect(() => {
+	// value from 0 to 10
+	const { peak } = state.currentSetting.lowPassFilter;
+	lowPassFilterNode.Q.value = peak.value * MAX_PEAK_VALUE;
 });
